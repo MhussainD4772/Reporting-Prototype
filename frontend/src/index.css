@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --color-canvas: #0e0e0c;
+  --color-surface: #161614;
+  --color-raised: #1c1c19;
+  --color-border: #2e2e28;
+  --color-ink: #f4f1ea;
+  --color-muted: #9a968a;
+  --color-accent: #2dd4bf;
+  --color-accent-soft: rgb(45 212 191 / 0.14);
+  --color-hold: #fbbf24;
+  --color-hold-soft: rgb(251 191 36 / 0.14);
+  --color-done: #a8a29e;
+  --color-done-soft: rgb(168 162 158 / 0.14);
+  --color-sky: #7dd3fc;
+  --color-sky-soft: rgb(125 211 252 / 0.14);
+  --color-violet: #e9d5ff;
+  --color-violet-soft: rgb(233 213 255 / 0.14);
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
+  body {
+    margin: 0;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    background:
+      radial-gradient(900px 420px at 50% -80px, rgb(45 212 191 / 0.1), transparent 55%),
+      var(--color-canvas);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+}
+
+.table-scroll {
+  scrollbar-gutter: stable;
+}
+
+.table-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.table-scroll::-webkit-scrollbar-thumb {
+  background: #4a4944;
+  border-radius: 4px;
+}
