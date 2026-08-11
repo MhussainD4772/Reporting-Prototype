@@ -1,0 +1,21 @@
+# Dependencies and build
+node_modules/
+dist/
+dist-ssr/
+*.tsbuildinfo
+
+# Vite
+*.local
+
+# Logs
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Test / coverage
+coverage/
+
+# OS
+.DS_Store
