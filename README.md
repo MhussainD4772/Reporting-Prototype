@@ -50,6 +50,8 @@ H2 is in-memory. Every process start reseeds mock data. Restarts wipe it. That i
 
 There is no authentication; it was out of scope for this assessment. In a real internal portal, reports would be access-controlled per user, and `GET /api/reports` would return only the catalog the caller is allowed to see.
 
+API failures are handled in the UI (loading / error / Retry). The backend has no custom error handlers or application logging: unknown paths and uncaught exceptions use Spring Boot defaults, and output goes to container stdout (`docker compose` logs). A production follow-up would be a `@ControllerAdvice` (or Problem Details), structured logs at the boundary, and shipping stdout to an aggregator.
+
 ## Without Docker
 
 Needs Java 21 and Node 22. Run both:
