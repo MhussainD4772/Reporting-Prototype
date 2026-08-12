@@ -14,7 +14,9 @@ docker compose up --build
 
 Open http://localhost
 
-If port 80 is already in use, change the mapping in `docker-compose.yml`. First build downloads images and compiles the API; later starts are faster.
+If port 80 is already in use, change the mapping in `docker-compose.yml`.
+
+**Build time:** the first `docker compose up --build` downloads base images and Maven/npm dependencies — often **5–10 minutes** on a laptop, depending on network and CPU. Rebuilds reuse Docker layer and BuildKit caches and are usually much faster. On a low-RAM machine, build one service at a time: `docker compose build api && docker compose build web`.
 
 ## What you can do
 
