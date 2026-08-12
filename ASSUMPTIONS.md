@@ -84,6 +84,14 @@ No authentication. Out of scope. A real portal would filter `GET /api/reports` b
 
 No pagination API. Out of scope. Tables are small; sort and search are client-side.
 
+## Backend errors and logging
+
+**Chose:** frontend owns the failure UX (`ApiError`, ErrorPanel, Retry). Backend relies on Spring Boot’s default 404/500 responses and console logging to container stdout.
+
+**Rejected:** custom `@ControllerAdvice` / Problem Details and application-level SLF4J logging for this demo.
+
+**Tradeoff:** reviewers see resilient UI; ops/debug story is “read Compose logs.” Production would add structured logging at the API boundary and ship stdout to an aggregator.
+
 ## Narrow viewports
 
 Landing stacks. The table keeps a real `<table>` and scrolls horizontally with a sticky first column. We did not build a card-per-row layout. Sort and column alignment stay one component.
